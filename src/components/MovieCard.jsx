@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -5,9 +6,10 @@ const MovieCard = ({movie}) => {
   return (
     <div className='flex flex-col mt-4 w-64'>
       <Link to='./MovieDetails'>
-        <img className='w-full' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-2tuLGjtex92lAjBwmG2i8P8Zxa_8Dz1MEg&s" alt="movie_image" />
+        <img className='w-full' src={movie.Poster !== 'N/A' ? movie.Poster :  "https://via.placeholder.com/400"} alt={movie.Title} />
       </Link>
-      <span className='text-black font-semibold text-2xl text-center'>The kings man</span>
+      {/* <span>{movie.Type}</span> */}
+      <span className='text-black font-semibold text-2xl text-center'>{movie.Title}</span>
     </div>
   )
 }
